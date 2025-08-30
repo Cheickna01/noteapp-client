@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --default-font-family: "OFL", sans-serif;
+  /* COULEURS BLEUS */
+  --color-primary-one: #2547d0;
+  --color-primary-two: #335cff;
+  --color-primary-three: #ebf1ff;
+
+  /* COULEURS VERTS */
+  --color-secondary-one: #21c16b;
+  --color-secondary-two: #d1fbe9;
+
+  /* COULEURS ROUGES PRIMAIRES */
+  --color-tertiary-one: #fb3748;
+  --color-tertiary-two: #ffd5d8;
+  --breakpoint-xs: 30rem;
+  /* LES TEXTES */
+  --text-preset-1: 24px;
+  --text-preset-1--line-height: 120%;
+  --text-preset-1--font-weight: bold;
+
+  --text-preset-2: 20px;
+  --text-preset-2--line-height: 120%;
+  --text-preset-2--font-weight: bold;
+
+  --text-preset-3: 16px;
+  --text-preset-3--line-height: 120%;
+  --text-preset-3--font-weight: 600;
+
+  --text-preset-4: 14px;
+  --text-preset-4--line-height: 120%;
+  --text-preset-4--font-weight: 500;
+
+  --text-preset-5: 14px;
+  --text-preset-5--line-height: 130%;
+  --text-preset-5--font-weight: 300;
+
+  --text-preset-6: 12px;
+  --text-preset-6--line-height: 120%;
+  --text-preset-6--font-weight: 200;
+
+  /* RADIUS */
+  --radius-0: 0;
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-24: 24px;
+  --radius-full: 999px;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.sans {
+  font-family: "OFL", sans-serif;
+  src: url("/assets/fonts/inter/Inter-VariableFont_opsz\,wght.ttf");
+}
+.serif {
+  font-family: "OFL", serif;
+  src: url("/assets/fonts/inter/Inter-VariableFont_opsz\,wght.ttf");
+}
+.mono {
+  font-family: "OFL", monospace;
+  src: url("/assets/fonts/inter/Inter-VariableFont_opsz\,wght.ttf");
+}

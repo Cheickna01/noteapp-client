@@ -1,0 +1,14 @@
+@keyframes slideInRight {
+  from {
+    transform: translateX(10%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toast-slide-right {
+  animation: slideInRight 0.2s ease forwards;
+}
