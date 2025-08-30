@@ -52,7 +52,7 @@ export default function AllNotes() {
         <button
           className={`lg:block hidden mb-4 bg-blue-500 rounded-8 py-3 px-4 text-preset-4 text-white cursor-pointer w-[200px] m-auto`}
         >
-          + Create New Note
+          + Create New Notee
         </button>
         {filters.tags && (
           <Link
