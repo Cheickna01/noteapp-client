@@ -24,6 +24,7 @@ export default function PasswordChange() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(data.password)
     if (data.newPassword === data.passWordConfirm) {
       updateAccount(data, setShowValid, navigate);
     } else {

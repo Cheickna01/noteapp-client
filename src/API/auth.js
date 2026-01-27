@@ -29,8 +29,8 @@ export const auth = (setUser, navigate) => {
     credentials: "include",
   })
     .then((req) => {
+      console.log(req.status)
       if (req.status !== 200) throw new Error();
-      console.log("jhg")
       return req.json();
     })
     .then((res) => {

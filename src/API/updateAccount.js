@@ -11,7 +11,9 @@ export const updateAccount = (data, setShowValid, navigate) => {
     body: JSON.stringify(data),
   })
     .then((req) => {
-      if (req.status !== 200) throw new Error();
+      if (req.status !== 200) {
+        throw new Error();
+      }
 
       return req.json();
     })
