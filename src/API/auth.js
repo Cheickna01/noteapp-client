@@ -30,6 +30,7 @@ export const auth = (setUser, navigate) => {
   })
     .then((req) => {
       if (req.status !== 200) throw new Error();
+      console.log("jhg")
       return req.json();
     })
     .then((res) => {
