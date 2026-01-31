@@ -11,6 +11,7 @@ export const forgotPassword = (data) => {
     body: JSON.stringify(data),
   })
     .then((req) => {
+      console.log(req.status)
       if (req.status !== 200) throw new Error();
       toast.success("Mail envoyé avec succès!");
       return req.json();
