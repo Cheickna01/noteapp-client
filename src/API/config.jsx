@@ -1,1 +1,1 @@
-export const base_url = "noteapp-server-production.up.railway.app/api";
+export const base_url = "https://noteapp-server-production.up.railway.app/api";
