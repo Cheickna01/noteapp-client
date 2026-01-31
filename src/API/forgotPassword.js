@@ -11,11 +11,10 @@ export const forgotPassword = (data) => {
     body: JSON.stringify(data),
   })
     .then((req) => {
-      console.log(req.status)
       if (req.status !== 200) throw new Error();
       toast.success("Mail envoyé avec succès!");
       return req.json();
-    }).then(res=>console.log(data))
+    }).then(res=>console.log(res))
     .catch((e) => {
       console.log(e);
       toast.error("Une erreur est survenue!");
