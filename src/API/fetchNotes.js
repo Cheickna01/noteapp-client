@@ -21,6 +21,6 @@ export const fetchNotes = (setNotes, filters, setAllTags) => {
     })
     .catch((e) => {
       console.log(e);
-      toast.error("Veuillez réessayer!");
+      toast.error(e);
     });
 };
