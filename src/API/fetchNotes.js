@@ -21,6 +21,6 @@ export const fetchNotes = (setNotes, filters, setAllTags) => {
     })
     .catch((e) => {
       console.log(e);
-      toast.error(e);
+      toast.error("oups Il y'a un problème momentanée sur notre serveur!");
     });
 };
