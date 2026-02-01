@@ -15,4 +15,4 @@ L'interface utilisateur de NoteApp, construite avec React et Vite.
 5. Pour la communication avec le server, allez dans le fichier config.jsx qui se trouve dans: src/API, puis changez le lien.
 
 🚀 Déploiement
-Hébergé sur Netlify. Les redirections sont gérées via un fichier _redirects dans le dossier public.
+Hébergé sur Railway ou Netlify. Les redirections sont gérées via un fichier _redirects dans le dossier public.
