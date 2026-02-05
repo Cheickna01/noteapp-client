@@ -2,7 +2,7 @@ import { base_url } from "./config";
 import { toast } from "react-toastify";
 
 export const createNote = (filters,setFilters) => {
-  fetch(`${base_url}/notes/create-note`, {
+  fetch(`${base_url}/create-note`, {
     method: "POST",
     credentials: "include"
   })

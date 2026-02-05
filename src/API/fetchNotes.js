@@ -3,7 +3,7 @@ import { base_url } from "./config";
 import { toast } from "react-toastify";
 
 export const fetchNotes = (setNotes, filters, setAllTags) => {
-  fetch(`${base_url}/notes/every`, {
+  fetch(`${base_url}/every`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
