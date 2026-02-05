@@ -18,7 +18,7 @@ export const login = (data,navigate) => {
       localStorage.setItem("token", res.token)
       setTimeout(() => {
         navigate("/dashboard")
-      }, 1500);
+      }, 1000);
     })
     .catch((e) => {
       console.log(e);
