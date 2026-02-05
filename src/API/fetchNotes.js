@@ -23,6 +23,6 @@ export const fetchNotes = (setNotes, filters, setAllTags) => {
     })
     .catch((e) => {
       console.log(e);
-      toast.error("Veuillez réessayerrr!");
+      toast.error(localStorage.getItem("token"));
     });
 };
