@@ -2,7 +2,7 @@ import { base_url } from "./config";
 import { toast } from "react-toastify";
 
 export const fetchNote = (noteID, setNote) => {
-  fetch(`${base_url}/notes/${noteID}`, {
+  fetch(`${base_url}/${noteID}`, {
     method: "GET",
     credentials: "include"
   })
