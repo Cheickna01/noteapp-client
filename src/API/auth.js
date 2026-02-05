@@ -25,11 +25,15 @@ export const changePasswordAuth = (data, setData, token, navigate) => {
 
 //authentification globale
 export const auth = (setUser, navigate) => {
+  const token = localStorage.getItem("token");
   fetch(`${base_url}/me`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
     credentials: "include",
   })
     .then((req) => {
-      console.log(req.status)
+      console.log(req.status);
       if (req.status !== 200) throw new Error();
       return req.json();
     })

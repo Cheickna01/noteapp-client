@@ -1,12 +1,12 @@
 import { base_url } from "./config";
 import { toast } from "react-toastify";
-const token = localStorage.getItem("token");
 
 export const fetchNote = (noteID, setNote) => {
+  const token = localStorage.getItem("token");
   fetch(`${base_url}/notes/${noteID}`, {
     method: "GET",
     headers: {
-      "Authorization": `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
     credentials: "include",
   })
