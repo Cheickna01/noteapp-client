@@ -6,7 +6,7 @@ export const fetchNote = (noteID, setNote) => {
   fetch(`${base_url}/notes/${noteID}`, {
     method: "GET",
     headers: {
-      Authorization: `Bearer ${token}`,
+      "Authorization": `Bearer ${token}`,
     },
     credentials: "include",
   })

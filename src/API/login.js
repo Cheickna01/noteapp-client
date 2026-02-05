@@ -13,12 +13,12 @@ export const login = (data,navigate) => {
     .then((req) => {
       if (req.status !== 200) throw new Error();
       toast.success("Connecté avec succès!");
-      setTimeout(() => {
-        navigate("/dashboard")
-      }, 1000);
       return req.json();
     }).then(res=>{
       localStorage.setItem("token", res.token)
+      setTimeout(() => {
+        navigate("/dashboard")
+      }, 1500);
     })
     .catch((e) => {
       console.log(e);

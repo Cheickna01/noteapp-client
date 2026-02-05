@@ -8,7 +8,7 @@ export const fetchNotes = (setNotes, filters, setAllTags) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      "Authorization": `Bearer ${token}`,
     },
     credentials: "include",
     body: JSON.stringify(filters),
