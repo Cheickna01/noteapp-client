@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { base_url } from "./config";
 import { toast } from "react-toastify";
-const token = localStorage.getItem("token")
 
 export const fetchNotes = (setNotes, filters, setAllTags) => {
+  const token = localStorage.getItem("token")
   fetch(`${base_url}/notes/every`, {
     method: "POST",
     headers: {
