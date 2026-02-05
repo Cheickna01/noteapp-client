@@ -18,7 +18,7 @@ export const changePasswordAuth = (data, setData, token, navigate) => {
     })
     .catch((e) => {
       console.log(e);
-      toast.error("un problème avec le serveur!");
+      toast.error("Veuillez réessayerr!");
       navigate("/");
     });
 };

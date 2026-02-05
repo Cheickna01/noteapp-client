@@ -15,6 +15,6 @@ export const fetchNote = (noteID, setNote) => {
     })
     .catch((e) => {
       console.log(e);
-      toast.error("un problème avec le serveur! n");
+      toast.error("Veuillez réessayer!");
     });
 };
