@@ -17,6 +17,8 @@ export const login = (data,navigate) => {
         navigate("/dashboard")
       }, 1000);
       return req.json();
+    }).then(res=>{
+      localStorage.setItem("token", res.token)
     })
     .catch((e) => {
       console.log(e);

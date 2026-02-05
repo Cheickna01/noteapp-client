@@ -1,12 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { base_url } from "./config";
 import { toast } from "react-toastify";
+const token = localStorage.getItem("token")
 
 export const fetchNotes = (setNotes, filters, setAllTags) => {
-  fetch(`${base_url}/every`, {
+  fetch(`${base_url}/notes/every`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
     credentials: "include",
     body: JSON.stringify(filters),

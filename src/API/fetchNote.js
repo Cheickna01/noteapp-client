@@ -1,10 +1,14 @@
 import { base_url } from "./config";
 import { toast } from "react-toastify";
+const token = localStorage.getItem("token");
 
 export const fetchNote = (noteID, setNote) => {
-  fetch(`${base_url}/${noteID}`, {
+  fetch(`${base_url}/notes/${noteID}`, {
     method: "GET",
-    credentials: "include"
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    credentials: "include",
   })
     .then((req) => {
       if (req.status !== 200) throw new Error();

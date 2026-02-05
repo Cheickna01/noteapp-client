@@ -1,5 +1,6 @@
 import { base_url } from "./config";
 import { toast } from "react-toastify";
+const token = localStorage.getItem("token")
 
 export const archiveNote = (
   note,
@@ -13,6 +14,7 @@ export const archiveNote = (
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
     },
     body: JSON.stringify(note),
     credentials: "include",
