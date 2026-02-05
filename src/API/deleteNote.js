@@ -8,12 +8,13 @@ export const deleteNote = (
   setFilters,
   setShowValid,
   setActiveModal,
-  navigate
+  navigate,
 ) => {
   fetch(`${base_url}/notes/delete-note`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
     body: JSON.stringify(note),
     credentials: "include",
@@ -24,10 +25,10 @@ export const deleteNote = (
     })
     .then((res) => {
       setFilters({ ...filters });
-      setNoteID("")
+      setNoteID("");
       setActiveModal("");
       setShowValid("deleted");
-      navigate("/dashboard")
+      navigate("/dashboard");
     })
 
     .catch((e) => {

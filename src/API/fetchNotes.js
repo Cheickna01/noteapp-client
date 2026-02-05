@@ -3,12 +3,11 @@ import { base_url } from "./config";
 import { toast } from "react-toastify";
 
 export const fetchNotes = (setNotes, filters, setAllTags) => {
-  const token = localStorage.getItem("token")
   fetch(`${base_url}/notes/every`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`,
+      "Authorization": `Bearer ${localStorage.getItem("token")}`,
     },
     credentials: "include",
     body: JSON.stringify(filters),

@@ -1,11 +1,12 @@
 import { base_url } from "./config";
 import { toast } from "react-toastify";
 
-export const saveNote = (note, filters, setFilters,setShowValid) => {
+export const saveNote = (note, filters, setFilters, setShowValid) => {
   fetch(`${base_url}/notes/save-note`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
     body: JSON.stringify(note),
     credentials: "include",
@@ -13,11 +14,12 @@ export const saveNote = (note, filters, setFilters,setShowValid) => {
     .then((req) => {
       if (req.status !== 200) throw new Error();
       return req.json();
-    }).then(res=>{
-      setFilters({...filters})
-      setShowValid("saved")
     })
-   
+    .then((res) => {
+      setFilters({ ...filters });
+      setShowValid("saved");
+    })
+
     .catch((e) => {
       console.log(e);
       toast.error("Veuillez réessayer!");
