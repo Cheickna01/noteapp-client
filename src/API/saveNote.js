@@ -2,7 +2,7 @@ import { base_url } from "./config";
 import { toast } from "react-toastify";
 
 export const saveNote = (note, filters, setFilters,setShowValid) => {
-  fetch(`${base_url}/save-note`, {
+  fetch(`${base_url}/notes/save-note`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

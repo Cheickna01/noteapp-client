@@ -10,7 +10,7 @@ export const deleteNote = (
   setActiveModal,
   navigate
 ) => {
-  fetch(`${base_url}/delete-note`, {
+  fetch(`${base_url}/notes/delete-note`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
