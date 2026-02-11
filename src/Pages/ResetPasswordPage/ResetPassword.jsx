@@ -5,10 +5,12 @@ import logo from "../../assets/images/logo.svg";
 import { useContext, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
-import { auth, changePasswordAuth } from "../../API/auth";
+import { changePasswordAuth } from "../../API/auth";
 import { useNavigate, useParams } from "react-router-dom";
 import { resetPassword } from "../../API/resetPassword";
 import { ThemeContext } from "../../context/themeContext";
+import Spinner from "../../Components/Modals/Spinner";
+import { createPortal } from "react-dom";
 export default function ResetPassword() {
   const token = useParams().token;
   const navigate = useNavigate();
@@ -20,6 +22,7 @@ export default function ResetPassword() {
   const [showPassword, setShowPassword] = useState("");
   const [showCPassword, setShowCPassword] = useState("");
   const { theme } = useContext(ThemeContext);
+  const [showModal, setShowModal] = useState("");
   useEffect(() => {
     changePasswordAuth(data, setData, token, navigate);
   }, []);
@@ -33,9 +36,12 @@ export default function ResetPassword() {
   function handleSubmit(e) {
     e.preventDefault();
     if (data.confirmPassword === data.password) {
-      resetPassword(data, navigate);
+      setShowModal(true);
+      resetPassword(data, navigate,setShowModal);
     }
   }
+  const spinner = createPortal(<Spinner />, document.body);
+
   return (
     <div
       className={`flex items-center justify-center h-screen ${
@@ -116,6 +122,7 @@ export default function ResetPassword() {
         </div>
       </div>
       <ToastContainer />
+      {showModal === true && spinner}
     </div>
   );
 }

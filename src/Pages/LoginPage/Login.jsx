@@ -1,6 +1,4 @@
 import "./login.css";
-import hidePasswordIcon from "../../assets/images/icon-hide-password.svg";
-import showPasswordIcon from "../../assets/images/icon-show-password.svg";
 import googleIcon from "../../assets/images/icon-google.svg";
 import logo from "../../assets/images/logo.svg";
 import logo2 from "../../assets/images/logo.png";
@@ -10,6 +8,8 @@ import { login } from "../../API/login";
 import { ToastContainer } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { ThemeContext } from "../../context/themeContext";
+import { createPortal } from "react-dom";
+import Spinner from "../../Components/Modals/Spinner";
 export default function Login() {
   const navigate = useNavigate();
   const [data, setData] = useState({
@@ -17,6 +17,7 @@ export default function Login() {
     password: "",
   });
   const [show, setShow] = useState("");
+  const [showModal, setShowModal] = useState("");
   const { theme } = useContext(ThemeContext);
   function onShowPassword() {
     setShow(!show);
@@ -24,8 +25,11 @@ export default function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    login(data, navigate);
+    setShowModal(true);
+    login(data, navigate, setShowModal);
   }
+
+  const spinner = createPortal(<Spinner />, document.body);
   return (
     <div
       className={`flex items-center justify-center ${theme.font} h-screen ${
@@ -130,6 +134,7 @@ export default function Login() {
         </p>
       </div>
       <ToastContainer />
+      {showModal === true && spinner}
     </div>
   );
 }

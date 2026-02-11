@@ -2,7 +2,7 @@ import { base_url } from "./config";
 import { toast } from "react-toastify";
 
 //recupération de compte
-export const changePasswordAuth = (data, setData, token, navigate) => {
+export const changePasswordAuth = (data, setData, token, navigate,setShowModal) => {
   fetch(`${base_url}/auth/${token}`, {
     method: "POST",
     headers: {
@@ -10,6 +10,7 @@ export const changePasswordAuth = (data, setData, token, navigate) => {
     },
   })
     .then((req) => {
+      setShowModal(false);
       if (req.status !== 200) throw new Error();
       return req.json();
     })
@@ -24,7 +25,7 @@ export const changePasswordAuth = (data, setData, token, navigate) => {
 };
 
 //authentification globale
-export const auth = (setUser, navigate) => {
+export const auth = (setUser, navigate,setShowModal) => {
   const token = localStorage.getItem("token");
   fetch(`${base_url}/me`, {
     headers: {
@@ -33,7 +34,7 @@ export const auth = (setUser, navigate) => {
     credentials: "include",
   })
     .then((req) => {
-      console.log(req.status);
+      setShowModal(false);
       if (req.status !== 200) throw new Error();
       return req.json();
     })

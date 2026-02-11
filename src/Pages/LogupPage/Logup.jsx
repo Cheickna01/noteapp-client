@@ -1,5 +1,3 @@
-import hidePasswordIcon from "../../assets/images/icon-hide-password.svg";
-import showPasswordIcon from "../../assets/images/icon-show-password.svg";
 import googleIcon from "../../assets/images/icon-google.svg";
 import infoIcon from "../../assets/images/icon-info.svg";
 import logo from "../../assets/images/logo.svg";
@@ -10,6 +8,8 @@ import { ToastContainer } from "react-toastify";
 import { Link } from "react-router-dom";
 import { logup } from "../../API/logup";
 import { ThemeContext } from "../../context/themeContext";
+import Spinner from "../../Components/Modals/Spinner";
+import { createPortal } from "react-dom";
 export default function Logup() {
   const [data, setData] = useState({
     email: "",
@@ -17,6 +17,7 @@ export default function Logup() {
   });
 
   const [show, setShow] = useState("");
+  const [showModal, setShowModal] = useState("");
   const { theme } = useContext(ThemeContext);
   function onShowPassword() {
     setShow(!show);
@@ -24,8 +25,10 @@ export default function Logup() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    logup(data);
+    setShowModal(true)
+    logup(data,setShowModal);
   }
+    const spinner = createPortal(<Spinner />, document.body);
   return (
     <div
       className={`flex items-center justify-center h-screen ${
@@ -122,6 +125,7 @@ export default function Logup() {
         </p>
       </div>
       <ToastContainer />
+      {showModal === true && spinner}
     </div>
   );
 }

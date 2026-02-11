@@ -14,19 +14,22 @@ import { UserContext } from "../../context/userContext";
 import { fetchNotes } from "../../API/fetchNotes";
 import { ThemeContext } from "../../context/themeContext";
 import LogoutModal from "../ModalsComponents/LogoutModal";
+import Spinner from "../../Components/Modals/Spinner";
 export default function Layout() {
   const navigate = useNavigate();
   const [actived, setActived] = useState("all");
   const { setNotes, filters, setAllTags } = useContext(NoteContext);
-  const { activeModal, showValid } = useContext(ValidationContext);
+  const { activeModal, showValid,showModal,setShowModal } = useContext(ValidationContext);
   const { theme } = useContext(ThemeContext);
   const { setUser } = useContext(UserContext);
   const deleteModal = createPortal(<DeleteModal />, document.body);
   const archiveModal = createPortal(<ArchiveModal />, document.body);
   const logoutModal = createPortal(<LogoutModal />, document.body);
+  const spinner = createPortal(<Spinner />, document.body);
 
   useEffect(() => {
-    auth(setUser, navigate);
+    setShowModal(true)
+    auth(setUser, navigate,setShowModal);
   }, []);
 
   useEffect(() => {
@@ -52,6 +55,7 @@ export default function Layout() {
       {activeModal === "delete" && deleteModal}
       {activeModal === "archive" && archiveModal}
       {activeModal === "logout" && logoutModal}
+      {showModal === true && spinner}
     </div>
   );
 }

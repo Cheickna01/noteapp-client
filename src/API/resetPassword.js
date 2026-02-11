@@ -1,7 +1,7 @@
 import { base_url } from "./config";
 import { toast } from "react-toastify";
 
-export const resetPassword = (data,navigate) => {
+export const resetPassword = (data,navigate,setShowModal) => {
   fetch(`${base_url}/reset-password`, {
     method: "POST",
     headers: {
@@ -10,6 +10,7 @@ export const resetPassword = (data,navigate) => {
     body: JSON.stringify(data),
   })
     .then((req) => {
+      setShowModal(false)
       if (req.status !== 200) throw new Error();
       toast.success("Mot de passe changé avec succès!")
       setTimeout(() => {

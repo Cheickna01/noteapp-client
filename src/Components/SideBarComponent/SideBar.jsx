@@ -22,7 +22,8 @@ export default function SideBar({ actived, setActived }) {
   }
   function handleTag(tag) {
     setActived(tag._id);
-    setFilters({ archives: false, search: "", tags: tag.tag });
+    //ici j'ai fai une modif, le tag s'affiche meme si la note coorespondante est dans les archives, il affichera la note que si on va dans archives
+    setFilters({ ...filters, search: "", tags: tag.tag });
   }
 
   return (

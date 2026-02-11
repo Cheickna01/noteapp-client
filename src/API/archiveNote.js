@@ -10,7 +10,7 @@ export const archiveNote = (
   setActiveModal,
   navigate
 ) => {
-  fetch(`${base_url}/archive-note`, {
+  fetch(`${base_url}/notes/archive-note`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

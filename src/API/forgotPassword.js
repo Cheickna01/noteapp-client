@@ -1,7 +1,7 @@
 import { base_url } from "./config";
 import { toast } from "react-toastify";
 
-export const forgotPassword = (data) => {
+export const forgotPassword = (data,setShowModal) => {
   fetch(`${base_url}/forgot-password`, {
     method: "POST",
     headers: {
@@ -11,7 +11,7 @@ export const forgotPassword = (data) => {
     body: JSON.stringify(data),
   })
     .then((req) => {
-      console.log(req.status)
+      setShowModal(false)
       if (req.status !== 200) throw new Error();
       toast.success("Mail envoyé avec succès!");
       return req.json();

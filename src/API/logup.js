@@ -1,7 +1,7 @@
 import { base_url } from "./config";
 import { toast } from "react-toastify";
 
-export const logup = (data) => {
+export const logup = (data, setShowModal) => {
   fetch(`${base_url}/logup`, {
     method: "POST",
     headers: {
@@ -10,8 +10,9 @@ export const logup = (data) => {
     body: JSON.stringify(data),
   })
     .then((req) => {
+      setShowModal(false);
       if (req.status !== 200) throw new Error();
-      toast.success("Compte créer avec succès!")
+      toast.success("Compte créer avec succès!");
       return req.json();
     })
     .catch((e) => {

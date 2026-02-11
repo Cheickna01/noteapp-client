@@ -4,15 +4,21 @@ import { useContext, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { forgotPassword } from "../../API/forgotPassword";
 import { ThemeContext } from "../../context/themeContext";
+import Spinner from "../../Components/Modals/Spinner";
+import { createPortal } from "react-dom";
 export default function ForgottenPassword() {
   const [data, setData] = useState({
     email: "",
   });
   const { theme } = useContext(ThemeContext);
+  const [showModal, setShowModal] = useState("");
   function handleSubmit(e) {
     e.preventDefault();
-    forgotPassword(data);
+    setShowModal(true)
+    forgotPassword(data,setShowModal);
   }
+  const spinner = createPortal(<Spinner />, document.body);
+
   return (
     <div
       className={`flex items-center justify-center h-screen ${theme.font} bg-neutral-100 ${
@@ -61,6 +67,7 @@ export default function ForgottenPassword() {
         </div>
       </div>
       <ToastContainer />
+      {showModal === true && spinner}
     </div>
   );
 }
