@@ -24,7 +24,7 @@ export default function ResetPassword() {
   const { theme } = useContext(ThemeContext);
   const [showModal, setShowModal] = useState("");
   useEffect(() => {
-    changePasswordAuth(data, setData, token, navigate);
+    changePasswordAuth(data, setData, token, navigate,setShowModal);
   }, []);
   function onShowPassword() {
     setShowPassword(!showPassword);
