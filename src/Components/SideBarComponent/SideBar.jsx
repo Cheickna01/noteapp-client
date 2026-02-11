@@ -1,10 +1,6 @@
 import logo from "../../assets/images/logo.svg";
 import logo2 from "../../assets/images/logo.png";
 import "./sideBar.css";
-import homeIcon from "../../assets/images/icon-home.svg";
-import arrowRight from "../../assets/images/icon-chevron-right.svg";
-import archiveIcon from "../../assets/images/icon-archive.svg";
-import tagIcon from "../../assets/images/icon-tag.svg";
 import { useContext } from "react";
 import { NoteContext } from "../../context/noteContext";
 import { Link } from "react-router-dom";

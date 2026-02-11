@@ -1,9 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import NoteItem from "../../Components/NoteItemComponent/NoteItem";
 import { NoteContext } from "../../context/noteContext";
-import arrowRLeft from "../../assets/images/icon-arrow-left.svg";
-import searchIcon from "../../assets/images/icon-search.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ThemeContext } from "../../context/themeContext";
 
 export default function AllNotes() {
