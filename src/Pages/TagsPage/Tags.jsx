@@ -11,7 +11,7 @@ export default function Tags() {
     setFilters({ ...filters, tags: tag.tag });
     navigate("/dashboard");
   }
-  console.log(filters);
+  console.log(allTags);
   return (
     <div
       className={`lg:hidden mx-auto w-full lg:w-64 pr-4 pl-8 ${
